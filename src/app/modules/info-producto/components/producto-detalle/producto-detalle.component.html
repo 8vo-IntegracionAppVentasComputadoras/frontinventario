@@ -1,0 +1,81 @@
+<mat-card *ngIf="producto" class="mt-5">
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-card-title>
+    {{ editando ? 'Editando Producto' : producto.nombre }}
+    <button mat-icon-button color="primary" *ngIf="!editando" (click)="habilitarEdicion()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-title>
+
+
+  <mat-grid-list cols="5" rowHeight="250px" gutterSize="16px">
+
+
+    <!-- Imagen del producto a la izquierda -->
+    <mat-grid-tile [colspan]="2">
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" style="max-width: 100%;">
+    </mat-grid-tile>
+
+    <!-- Información del producto o formulario editable a la derecha -->
+    <mat-grid-tile [colspan]="3">
+      <mat-card-content class="product-info">
+        <!-- Si se está editando, mostramos el formulario, sino mostramos los datos actuales -->
+        <form *ngIf="editando" [formGroup]="productoForm" class="simple-form" (ngSubmit)="guardarCambios()">
+          <!-- Nombre -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" placeholder="Ingrese el nombre del producto">
+            <mat-error *ngIf="productoForm.get('nombre')?.invalid">
+              El nombre es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+
+          <!-- Precio -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Precio</mat-label>
+            <input matInput type="number" formControlName="precio" placeholder="Ingrese el precio del producto">
+            <mat-error *ngIf="productoForm.get('precio')?.invalid">
+              El precio debe ser un número válido.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Descripción -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion" placeholder="Ingrese la descripción"></textarea>
+            <mat-error *ngIf="productoForm.get('descripcion')?.invalid">
+              La descripción es obligatoria.
+            </mat-error>
+          </mat-form-field>
+
+          <div class="form-field">
+            <label for="imagen">Imagen del producto</label>
+            <input type="file" id="imagen" (change)="onFileSelected($event)">
+          </div>
+
+          <div class="button-container">
+            <button mat-raised-button color="warn" (click)="cancelarEdicion()">Cancelar</button>
+            <button mat-raised-button color="primary" type="submit">Guardar</button>
+          </div>
+        </form>
+
+        <!-- Mostrar información si no estamos en modo edición -->
+        <div *ngIf="!editando">
+          <p><strong>Precio:</strong> {{ producto.precio | currency }}</p>
+          <p><strong>Stock:</strong> {{ producto.stock }}</p>
+          <p><strong>Categoría:</strong> {{ producto.categoria }}</p>
+          <p><strong>Tipo:</strong> {{ producto.tipo }}</p>
+          <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+        </div>
+      </mat-card-content>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+<!-- Si no se encuentra el producto -->
+<div class="producto-no-encontrado" *ngIf="!producto">
+  <p>Producto no encontrado.</p>
+</div>

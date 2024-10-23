@@ -1,11 +1,23 @@
-import { Routes } from "@angular/router";
-import { NavbardComponent } from "./components/navbard/navbard.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { NavbardComponent } from './components/navbard/navbard.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 export const globalRoutes: Routes = [
   {
-    path:'',
+    path: '',
+    component: LoginComponent,
+  },
+  {
+    path: '',
     component: NavbardComponent,
-    loadChildren: () => import('./global.module').then(m => m.GlobalModule)
-  }
-]
+  },
+
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(globalRoutes)],  // Usar forChild en lugar de forRoot
+  exports: [RouterModule]
+})
+export class GlobalRoutingModule {}

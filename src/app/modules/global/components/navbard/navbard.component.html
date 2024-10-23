@@ -1,1 +1,13 @@
-<p>navbard works!</p>
+<mat-toolbar class="custom-toolbar">
+
+  <span class="app-name">Giga Shop</span>
+
+  <span class="example-spacer"></span>
+
+  <!-- Mostrar el botón de cerrar sesión solo si el usuario está autenticado -->
+  <button *ngIf="isLoggedIn()" (click)="logout()" mat-icon-button class="example-icon favorite-icon" aria-label="Cerrar sesión">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>
+<router-outlet></router-outlet>

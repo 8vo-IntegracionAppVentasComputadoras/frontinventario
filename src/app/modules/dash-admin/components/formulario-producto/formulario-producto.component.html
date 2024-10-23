@@ -1,0 +1,83 @@
+<mat-dialog-content>
+  <form [formGroup]="productoForm">
+
+    <!-- Nombre del producto -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre del Producto</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ingrese el nombre">
+      <mat-error *ngIf="productoForm.get('nombre')?.invalid">
+        El nombre es requerido
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Descripción del producto -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" placeholder="Ingrese la descripción">
+      <mat-error *ngIf="productoForm.get('descripcion')?.invalid">
+        La descripción es requerida
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Precio del producto -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Precio</mat-label>
+      <input matInput formControlName="precio" placeholder="Ingrese el precio" type="number" min="0"
+        (keypress)="validarEntradaNumeros($event)">
+      <mat-error *ngIf="productoForm.get('precio')?.invalid">
+        El precio debe ser un número positivo válido
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Stock -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Stock</mat-label>
+      <input matInput formControlName="stock" placeholder="Ingrese el stock" type="number" min="0"
+        (keypress)="validarEntradaNumeros($event)">
+      <mat-error *ngIf="productoForm.get('stock')?.invalid">
+        El stock debe ser un número válido y positivo
+      </mat-error>
+    </mat-form-field>
+
+
+    <!-- Categoría -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="categoria" (selectionChange)="onCategoriaChange()">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+          {{ categoria }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="productoForm.get('categoria')?.invalid">
+        La categoría es requerida
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Tipo de producto -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo de Producto</mat-label>
+      <mat-select formControlName="tipo">
+        <mat-option *ngFor="let tipo of tiposFiltrados" [value]="tipo">
+          {{ tipo }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="productoForm.get('tipo')?.invalid">
+        El tipo es requerido
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Campo para subir la imagen -->
+    <div class="full-width">
+      <label for="file">Imagen del Producto</label>
+      <input type="file" (change)="onFileSelected($event)" required>
+      <mat-error *ngIf="!selectedFile">La imagen es requerida</mat-error>
+    </div>
+
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="crearProducto()" [disabled]="productoForm.invalid">Guardar</button>
+</mat-dialog-actions>

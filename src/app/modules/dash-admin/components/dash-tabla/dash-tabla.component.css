@@ -1,0 +1,94 @@
+/* Estilo para el botón "Agregar Producto" */
+.add-product-btn {
+  float: right; /* Mueve el botón a la derecha del título */
+  margin-right: 10px;
+  margin-bottom: 10px; /* Añadir un poco de espacio debajo del botón */
+}
+
+/* Estilo para el formulario de búsqueda */
+.search-bar {
+  width: 50%;
+  margin-bottom: 10px; /* Añadir espacio entre la barra de búsqueda y la tabla */
+}
+
+/* Estilo para la tabla */
+table {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+  border-spacing: 0; /* Eliminar el espacio entre celdas */
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); /* Sombra suave */
+}
+
+/* Estilos para las celdas de la tabla */
+mat-header-cell, mat-cell {
+  padding: 12px 16px; /* Padding más amplio para mejorar la legibilidad */
+  text-align: left; /* Alineación a la izquierda por defecto */
+}
+
+/* Estilos para las cabeceras */
+.mat-header-cell {
+  background-color: #f5f5f5; /* Color de fondo para las cabeceras */
+  font-weight: bold;
+  font-size: 14px; /* Tamaño de texto */
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para las celdas */
+mat-cell {
+  border-bottom: 1px solid #e0e0e0; /* Añadir línea entre filas */
+  font-size: 13px; /* Tamaño del texto en las celdas */
+  color: #555; /* Color del texto */
+}
+
+/* Estilo para las filas cuando se pasa el mouse */
+mat-row:hover {
+  background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para los botones de acciones */
+.mat-icon-button {
+  color: #1976d2; /* Color del botón principal */
+}
+
+.mat-icon-button.warn {
+  color: #e53935; /* Color rojo para los botones de eliminación */
+}
+
+/* Estilo para los iconos en las cabeceras de columnas */
+.mat-sort-header-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Paginador */
+.mat-paginator {
+  margin-top: 20px; /* Espacio entre la tabla y el paginador */
+}
+
+.mat-paginator-page-size {
+  margin-left: auto; /* Alinea el selector de tamaño de página a la derecha */
+}
+
+.mat-paginator-range-label {
+  font-size: 13px; /* Tamaño del texto del rango de páginas */
+}
+
+/* Botones del paginador (numeración) */
+.mat-paginator-navigation-previous, .mat-paginator-navigation-next {
+  font-size: 16px;
+  color: #1976d2;
+}
+
+.mat-paginator-navigation-last, .mat-paginator-navigation-first {
+  display: inline-block;
+}
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+  color: #3f51b5;
+}

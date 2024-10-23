@@ -1,0 +1,16 @@
+.example-spacer{
+  flex: 1 1 auto;
+}
+.custom-toolbar {
+  background-color: #1976d2;
+  color: white;
+  padding: 0 16px;
+  height: 64px;
+}
+
+.app-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+

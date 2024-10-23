@@ -1,0 +1,120 @@
+
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los botones de alternancia (Login/Registro) */
+.auth-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Mensajes de error */
+.text-danger {
+  color: #ff4a4a;
+  font-size: 12px;
+  margin-top: 5px; /* Ajuste de espacio */
+  margin-left: 10px; /* Opcional: alinearlo con el input */
+}
+/* Botones de acción (Iniciar sesión/Registrarse) */
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.modal-footer button {
+  padding: 8px 16px;
+}
+/* Contenedor para inputs */
+.input-container {
+  position: relative;
+  margin-bottom: 10px;
+
+}
+
+/* Input y diseño general */
+.input-container input {
+  width: 100%;
+  padding-left: 40px; /* Espacio para el icono */
+  padding-right: 10px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Icono dentro del input */
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%; /* Mantiene el icono centrado verticalmente */
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #888;
+  pointer-events: none; /* No interferir con el input */
+}
+
+/* Mensajes de error */
+.text-danger {
+  color: #ff4a4a;
+  font-size: 12px;
+  margin-top: 5px; /* Ajuste de espacio */
+  margin-left: 10px; /* Opcional: alinearlo con el input */
+}
+
+.form-style {
+  font-size: 16px;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+button:focus {
+  outline: none;
+}
